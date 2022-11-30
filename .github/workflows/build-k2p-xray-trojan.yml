@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build K2p Xray
+name: Build K2p Xray Trojan
 
 on:
   repository_dispatch:
