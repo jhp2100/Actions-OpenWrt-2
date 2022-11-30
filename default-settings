@@ -1,0 +1,7 @@
+#修改保留内存到1M
+sed -i '/vm.min_free_kbytes=/d' /etc/sysctl.conf
+echo 'vm.min_free_kbytes=1024' >> /etc/sysctl.conf
+
+# bbr & cake
+echo 'net.ipv4.tcp_congestion_control=bbr' >> /etc/sysctl.conf
+echo 'net.core.default_qdisc=cake' >> /etc/sysctl.conf
