@@ -35,10 +35,14 @@ echo 'net.core.default_qdisc=cake' >> package/base-files/files/etc/sysctl.d/10-d
 echo 'vm.min_free_kbytes=1024' >> package/base-files/files/etc/sysctl.d/10-default.conf
 
 # grep -i OFFLOAD /proc/net/nf_conntrack
+echo "
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
 
-echo 'iptables -I FORWARD 1 -m conntrack --ctstate RELATED,ESTABLISHED -j FLOWOFFLOAD' >> package/network/config/firewall/files/firewall.user
+# enable offload 
+iptables -I FORWARD 1 -m conntrack --ctstate RELATED,ESTABLISHED -j FLOWOFFLOAD
 
-# enable 
-# iptables -I FORWARD 1 -m conntrack --ctstate RELATED,ESTABLISHED -j FLOWOFFLOAD
-# disable
-# iptables -D FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j FLOWOFFLOAD
+# disable offload 
+# echo 'iptables -I FORWARD 1 -m conntrack --ctstate RELATED,ESTABLISHED -j FLOWOFFLOAD
+exit 0
+" > package/base-files/files/etc/rc.local
