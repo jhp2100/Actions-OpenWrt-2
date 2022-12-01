@@ -29,10 +29,9 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 # sed -i '/vm.min_free_kbytes=/d' package/base-files/files/etc/sysctl.conf
 # echo 'vm.min_free_kbytes=1024' >> package/base-files/files/etc/sysctl.conf
 
-# bbr & cake
+# bbr & fq_codel
 echo 'net.ipv4.tcp_congestion_control=bbr' >> package/base-files/files/etc/sysctl.d/10-default.conf
-echo 'net.core.default_qdisc=cake' >> package/base-files/files/etc/sysctl.d/10-default.conf
-echo 'vm.min_free_kbytes=1024' >> package/base-files/files/etc/sysctl.d/10-default.conf
+echo 'net.core.default_qdisc=fq_codel' >> package/base-files/files/etc/sysctl.d/10-default.conf
 
 # grep -i OFFLOAD /proc/net/nf_conntrack
 echo "
