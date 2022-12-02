@@ -9,3 +9,4 @@ src-git-full telephony https://git.openwrt.org/feed/telephony.git
 src-git-full kenzo https://github.com/kenzok8/openwrt-packages
 src-git-full small https://github.com/kenzok8/small
 src-git-full small_package https://github.com/kenzok8/small-package
+src-git-full bypass https://github.com/Cneupa/luci-app-bypass.git
