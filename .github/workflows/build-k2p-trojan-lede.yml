@@ -98,7 +98,7 @@ jobs:
       run: |
         [ -e files ] && mv files openwrt/files
         [ -e patch_feeds ] && cp -rf patch_feeds/* openwrt/feeds
-        [ -e patch_package ] && cp -rf patch_package/* openwrt/package
+        [ -e patch_package_lede ] && cp -rf patch_package_lede/* openwrt/package
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_P2_SH
         cd openwrt
