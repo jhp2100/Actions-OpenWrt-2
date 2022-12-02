@@ -119,7 +119,6 @@ jobs:
         make defconfig
         cat .config
         sed -i '/^.*_TARGET_OPTIMIZATIO.*$/d' .config
-        echo 'CONFIG_TARGET_OPTIMIZATION="-msoft-float -Os -pipe -mno-branch-likely -mips32r2 -mtune=24kc"' >> .config
         echo 'CONFIG_KERNEL_MIPS_FP_SUPPORT=y' >> .config
         echo 'CONFIG_KERNEL_MIPS_FPU_EMULATOR=y' >> .config
         make download -j8
